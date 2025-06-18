@@ -156,7 +156,7 @@ class Exporter:
         # if self.args.batch == model.args['batch_size']:  # user has not modified training batch_size
         self.args.batch = 1
         self.imgsz = check_imgsz(self.args.imgsz, stride=model.stride, min_dim=2)  # check image size
-        if model.task == 'classify':
+        if model.args['task'] == 'classify':
             self.args.nms = self.args.agnostic_nms = False
         if self.args.optimize:
             assert self.device.type == 'cpu', '--optimize not compatible with cuda devices, i.e. use --device cpu'

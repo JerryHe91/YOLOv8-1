@@ -182,7 +182,8 @@ class YOLO:
         args = get_cfg(cfg=DEFAULT_CFG, overrides=overrides)
         args.task = self.task
         if args.imgsz == DEFAULT_CFG.imgsz:
-            args.imgsz = self.model.args['imgsz']  # use trained imgsz unless custom value is passed
+            # args.imgsz = self.model.args['imgsz']  # use trained imgsz unless custom value is passed
+            args.imgsz = self.model.args.imgsz  # use trained imgsz unless custom value is passed
 
         exporter = Exporter(overrides=args)
         exporter(model=self.model)

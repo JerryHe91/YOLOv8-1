@@ -333,7 +333,7 @@ def torch_safe_load(weight):
 
     file = attempt_download_asset(weight)  # search online if missing locally
     try:
-        return torch.load(file, map_location='cpu')  # load
+        return torch.load(file, map_location='cpu',weights_only = False)  # load
     except ModuleNotFoundError as e:
         if e.name == 'omegaconf':  # e.name is missing module name
             LOGGER.warning(f"WARNING ⚠️ {weight} requires {e.name}, which is not in ultralytics requirements."
