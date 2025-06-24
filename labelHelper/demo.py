@@ -210,7 +210,7 @@ if __name__ == "__main__":
 
 
     image_folder = r'/home/ndvision/dl/datasets/chip/images/train/'  # 替换为你的图像文件夹路径
-    modelPath ="/home/ndvision/dl/ultralytics/runs/segment/train8/weights/best.onnx"  # 替换为你存储txt标注文件的文件夹路径
+    modelPath ="/home/ndvision/dl/ultralytics/runs/segment/train10/weights/yolov8-seg.onnx"  # 替换为你存储txt标注文件的文件夹路径
     output_folder = r'/home/ndvision/dl/datasets/chip/display'   # 替换为你希望保存可视化图像的输出文件夹
     conf = 0.4
     iou=0.5
