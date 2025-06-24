@@ -137,13 +137,12 @@ def visualize_folder(image_folder, annotation_folder, output_folder):
                 print(f"Warning: Annotation file for {image_file} not found.")
 
 # 设置图像、标注文件和输出文件夹路径
-image_folder = "/home/ndvision/dl/ultralytics/datasets/p0304/images/train"  # 替换为你的图像文件夹路径
-annotation_folder = "/home/ndvision/dl/ultralytics/datasets/p0304/labels/train"  # 替换为你存储txt标注文件的文件夹路径
-output_folder = "/home/ndvision/dl/ultralytics/datasets/p0304/show"  # 替换为你希望保存可视化图像的输出文件夹
 
-image_folder = "/home/ndvision/dl/datasets/chip/images/train"  # 替换为你的图像文件夹路径
-annotation_folder = "/home/ndvision/dl/ultralytics/datasets/tablet/labels"  # 替换为你存储txt标注文件的文件夹路径
-output_folder = "/home/ndvision/dl/ultralytics/datasets/tablet/show"  # 替换为你希望保存可视化图像的输出文件夹
+
+base_folder="/home/ndvision/dl/datasets/chip/"
+image_folder = base_folder+ "images/train"  # 替换为你的图像文件夹路径
+annotation_folder = base_folder+"labels/train"  # 替换为你存储txt标注文件的文件夹路径
+output_folder =base_folder+ "show"  # 替换为你希望保存可视化图像的输出文件夹
 #路径
 
 
