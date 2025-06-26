@@ -10,6 +10,7 @@ import PIL.Image
 import PIL.ImageDraw
 import cv2
  
+
  
 class ConvertManager(object):
     def __init__(self):
@@ -116,8 +117,13 @@ class ConvertManager(object):
             height = data_dict['imageHeight']
             line_list = []
             for shape in data_dict['shapes']:
+                if (shape['label'] not in names):
+                    continue
+
                 data_list = []
                 data_list.append(str(names.index(shape['label'])))
+                if  len(shape['points']) <4:
+                    continue
                 if shape['shape_type'] == 'rectangle':
                     points = self.__rectangle_points_to_polygon(shape['points'])
                     for point in points:
@@ -184,4 +190,10 @@ class ConvertManager(object):
 if __name__ == '__main__':
     cm = ConvertManager()
     # cm.start(r'源文件路径', r'保存新位置路径')
-    cm.start(r'/home/ndvision/dl/datasets/chip/json', r'/home/ndvision/dl/datasets/chip')
+    datasets_folder =  r'/home/ndvision/dl/datasets/'
+    data_name = 'golden/'
+    folder = datasets_folder + data_name
+
+    keep_label = ['JX']
+
+    cm.start(folder+'json',folder, names=keep_label)

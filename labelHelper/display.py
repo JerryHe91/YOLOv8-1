@@ -139,7 +139,10 @@ def visualize_folder(image_folder, annotation_folder, output_folder):
 # 设置图像、标注文件和输出文件夹路径
 
 
-base_folder="/home/ndvision/dl/datasets/chip/"
+datasets_folder =  r'/home/ndvision/dl/datasets/'
+data_name = 'golden/'
+base_folder = datasets_folder + data_name
+
 image_folder = base_folder+ "images/train"  # 替换为你的图像文件夹路径
 annotation_folder = base_folder+"labels/train"  # 替换为你存储txt标注文件的文件夹路径
 output_folder =base_folder+ "show"  # 替换为你希望保存可视化图像的输出文件夹

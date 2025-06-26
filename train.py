@@ -1,19 +1,19 @@
 
 from ultralytics import YOLO
 
-struct_file = "/home/ndvision/dl/ultralytics/train/segment/chip/yolov11s2.yaml"
+struct_file = "/home/ndvision/dl/ultralytics/train/segment/golden/yolov11s.yaml"
 # 加载一个预训练的 YOLO11n 模型
 model = YOLO(struct_file)
-model = YOLO("/home/ndvision/dl/ultralytics/runs/segment/train/weights/best.pt")
+# model = YOLO("/home/ndvision/dl/ultralytics/runs/segment/train5/weights/best.pt")
 
 # 在 COCO8 数据集上训练模型 100 个周期
 train_results = model.train(
-    data="/home/ndvision/dl/ultralytics/train/segment/chip/dataset.yaml",  # 数据集配置文件路径
-    batch = 32,
-    epochs=400,  # 训练周期数
+    data="/home/ndvision/dl/ultralytics/train/segment/golden/dataset.yaml",  # 数据集配置文件路径
+    batch = 2,
+    epochs=300,  # 训练周期数
     imgsz=640*2,  # 训练图像尺寸
     # device= [0],  # 运行设备（例如 'cpu', 0, [0,1,2,3]）
-    device= [0,1,2,3],  # 运行设备（例如 'cpu', 0, [0,1,2,3]）
+    device= [0,1],  # 运行设备（例如 'cpu', 0, [0,1,2,3]）
     mosaic= 0,
     close_mosaic=0,
 )
